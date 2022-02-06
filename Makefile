@@ -1,4 +1,14 @@
-# This is the makefile for the program.
+GCC = gcc
+CFLAGS = -g -Wall -Wshadow
+SRC = $(wildcard *.c)
+TAR = $(SRC:.c=.o)
 
-simplechain.o: simplechain.c
-	gcc -g -Wall -Wshadow -c simplechain.c
+.PHONY: all clean
+
+all: $(TAR)
+
+%.o: %.c
+	$(GCC) $(CFLAGS) -c $<
+
+clean:
+	rm -f $(TAR)
