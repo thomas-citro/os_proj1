@@ -9,7 +9,8 @@ all: $(TAR)
 
 %.o: %.c
 	$(GCC) $(CFLAGS) -c $<
-	$(GCC) -o chain $(TAR) #Temporary addition to create executable. Ask Jack if this should be edited?
+	$(GCC) -o chain $(TAR) 
+# ^ Second line there is what I added to create executable. Ask Jack if this should be edited/changed?
 
 clean:
 	rm -f $(TAR)
