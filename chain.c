@@ -3,13 +3,28 @@
 #include <unistd.h>
 #include <getopt.h>
 int main (int argc, char *argv[]) {
+	int nprocs = 4;
+	int nchars = 80;
+	int sleeptime 3;
+	int niters;
+	
 	int option;
-	while ((option = getopt(arc, argv, "cf")) != -1) {
+	while ((option = getopt(arc, argv, "hp:c:s:i:")) != -1) {
 		switch (option) {
+			case 'h' :
+				printf("Chose h flag. Will have to see what this is supposed to do.");
+			case 'p' :
+				nprocs = optarg;
+				printf("Chose p flag. Set nprocs to %d\n", nprocs);
 			case 'c' :
-				printf("chose c flag\n");
-			case 'f' :
-				printf("chose f flag\n");
+				nchars = optarg;
+				printf("Chose c flag. Set nchars to %d\n", nchars);
+			case 's' :
+				sleeptime = optarg;
+				printf("Chose s flag. Set sleeptime to %d\n", sleeptime);
+			case 'i' :
+				niters = optarg;
+				printf("Chose i flag. Set niters to %d\n", niters);
 			default:
 				printf("Error");
 		}
@@ -17,6 +32,7 @@ int main (int argc, char *argv[]) {
 	
 	
 	int i, n;
+	n = nprocs;
 	pid_t childpid = 0;
 	/*if (argc != 2){ check for valid number of command-line arguments 
 		fprintf(stderr, "Usage: %s processes\n", argv[0]);
