@@ -39,11 +39,13 @@ int main (int argc, char *argv[]) {
 	int i, n;
 	n = nprocs;
 	pid_t childpid = 0;
-	if (argc != 2){ check for valid number of command-line arguments 
+	/*
+	if (argc != 2) {
 		fprintf(stderr, "Usage: %s processes\n", argv[0]);
 		return 1;
 	}
 	n = atoi(argv[1]);
+	*/
 	
 	
 	for (i = 1; i < n; i++)
