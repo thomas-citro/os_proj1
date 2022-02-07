@@ -8,7 +8,7 @@ TAR = $(SRC:.c=.o)
 all: $(TAR)
 
 %.o: %.c
-	$(GCC) $(CFLAGS) -c $<
+	$(GCC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(TAR)
