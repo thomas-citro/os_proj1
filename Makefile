@@ -8,7 +8,8 @@ TAR = $(SRC:.c=.o)
 all: $(TAR)
 
 %.o: %.c
-	$(GCC) $(CFLAGS) -c $< -o $@
+	$(GCC) $(CFLAGS) -c $<
+	$(GCC) -o chain $(TAR)
 
 clean:
 	rm -f $(TAR)
