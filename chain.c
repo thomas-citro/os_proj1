@@ -13,18 +13,23 @@ int main (int argc, char *argv[]) {
 		switch (option) {
 			case 'h' :
 				printf("Chose h flag. Will have to see what this is supposed to do.");
+				break;
 			case 'p' :
 				nprocs = atoi(optarg);
 				printf("Chose p flag. Set nprocs to %d\n", nprocs);
+				break;
 			case 'c' :
 				nchars = atoi(optarg);
 				printf("Chose c flag. Set nchars to %d\n", nchars);
+				break;
 			case 's' :
 				sleeptime = atoi(optarg);
 				printf("Chose s flag. Set sleeptime to %d\n", sleeptime);
+				break;
 			case 'i' :
 				niters = atoi(optarg);
 				printf("Chose i flag. Set niters to %d\n", niters);
+				break;
 			default:
 				printf("Error");
 		}
