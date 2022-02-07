@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 	while ((option = getopt(argc, argv, "hp:c:s:i:")) != -1) {
 		switch (option) {
 			case 'h' :
-				printf("Chose h flag. Will have to see what this is supposed to do.");
+				printf("Chose h flag. Will have to see what this is supposed to do.\n");
 				break;
 			case 'p' :
 				nprocs = atoi(optarg);
@@ -36,7 +36,7 @@ int main (int argc, char *argv[]) {
 	}
 	
 	
-	/*int i, n;
+	int i, n;
 	n = nprocs;
 	pid_t childpid = 0;
 	if (argc != 2){ check for valid number of command-line arguments 
@@ -50,6 +50,6 @@ int main (int argc, char *argv[]) {
 		if (childpid = fork())
 			break;
 	fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
-	*/
+	
 	return 0;
 }
