@@ -42,6 +42,12 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
 			printf("I'm a parent (PID: %ld) that just forked off a child with PID: %ld\n", (long)getpid(),(long)childpid);
+			char mybuf[nchars];
+			char c;
+			for (i = 0; i < nchars; i++) {
+				c = getc(stdin);
+				printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), i, c);
+			}
 			wait();
 			printf("I'm a parent (PID: %ld) that just finished waiting for my child (PID: %ld) to complete execution.", (long)getpid(), (long)childpid);
 			printf(" I'm now breaking out of for loop\n"); 
@@ -68,6 +74,7 @@ int main (int argc, char *argv[]) {
 	for (i = 1; i < niters; i++)
 		sleep(sleeptime);
 	
+	/*
 	char mybuf[nchars];
 	char c;
 	for (i = 0; i < nchars; i++) {
@@ -75,6 +82,7 @@ int main (int argc, char *argv[]) {
 		printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), i, c);
 	}
 	mybuf[nchars] = '\0';
+	*/
 	
 	/*fscanf(stdin, "%s", mybuf);*/
 	
