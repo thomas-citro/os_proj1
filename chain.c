@@ -49,7 +49,7 @@ int main (int argc, char *argv[]) {
 	    }
 	}
 	while ((wpid = wait(&status)) > 0);
-	printf("Hello, I am process ID: %ld. Just finished waiting on all child processes.\n");
+	printf("Hello, I am process ID: %ld. Just finished waiting on all child processes.\n", (long)getpid());
 	
 	
 	for (i = 1; i < niters; i++)
