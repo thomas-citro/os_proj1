@@ -42,12 +42,12 @@ int main (int argc, char *argv[]) {
 	for (i = 1; i < nprocs; i++)
 		if (childpid = fork())
 			break;
-	for (int i = 1; i < niters; i++)
+	for (i = 1; i < niters; i++)
 		sleep(sleeptime);
 	
 	char mybuf[nchars];
 	char c;
-	for (int i = 0; i < nchars; i++) {
+	for (i = 0; i < nchars; i++) {
 		c = getc(stdin);
 		fprintf(stderr, "process: %c\n", c);
 	}
