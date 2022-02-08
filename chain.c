@@ -41,14 +41,16 @@ int main (int argc, char *argv[]) {
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
-			printf("I'm a parent (PID: %ld) that just forked off a child with PID: %ld\n", (long)getpid(),(long)childpid);
-			wait();
+			/*printf("I'm a parent (PID: %ld) that just forked off a child with PID: %ld\n", (long)getpid(),(long)childpid);*/
+			/*printf("For testing purposes, I will read one character from stdin: %c\n", getc(stdin));*/
+			/*wait();
 			printf("I'm a parent (PID: %ld) that just finished waiting for my child (PID: %ld) to complete execution.", (long)getpid(), (long)childpid);
-			printf(" I'm now breaking out of for loop\n"); 
+			printf(" I'm now breaking out of for loop\n");*/ 
 			break;
 		}
 	}
-	printf("Someone is out of the for loop\n");
+	/*printf("Someone is out of the for loop\n");*/
+	
 	
 	/*
 	int i;
@@ -64,16 +66,7 @@ int main (int argc, char *argv[]) {
 	while ((wpid = wait(&status)) > 0);
 	printf("Hello, I am process ID: %ld. Just finished waiting on all child processes.\n", (long)getpid());
 	*/
-	
-	char mybuf[nchars];
-	char c;
-	for (i = 0; i < nchars; i++) {
-		c = getc(stdin);
-		printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), i, c);
-	}
-	
-	for (i = 1; i < niters; i++)
-		sleep(sleeptime);
+
 	
 	/*
 	char mybuf[nchars];
@@ -82,12 +75,18 @@ int main (int argc, char *argv[]) {
 		c = getc(stdin);
 		printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), i, c);
 	}
-	mybuf[nchars] = '\0';
 	*/
+	/*mybuf[nchars] = '\0';*/
+	/*
+	for (i = 1; i < niters; i++)
+		sleep(sleeptime);
+	*/	
+
 	
 	/*fscanf(stdin, "%s", mybuf);*/
 	
-	/*fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);*/
+	sleep(10);
+	fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
 	
 	return 0;
 }
