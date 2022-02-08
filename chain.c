@@ -41,7 +41,8 @@ int main (int argc, char *argv[]) {
 	pid_t childpid, wpid;
 	int status = 0;
 	
-	for (int id=0; id<n; id++) {
+	int id = 0;
+	for (id = 0; id < nprocs; id++) {
 	    if ((childpid = fork()) == 0) {
 		//child code
 		exit(0);
