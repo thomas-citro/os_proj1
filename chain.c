@@ -85,8 +85,12 @@ int main (int argc, char *argv[]) {
 	
 	/*fscanf(stdin, "%s", mybuf);*/
 	
-	sleep(10);
-	fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+	int i;
+	for (i = 0; i < niters; i++) {
+		sleep(sleeptime);
+		fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+	}
+	
 	
 	return 0;
 }
