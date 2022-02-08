@@ -44,7 +44,11 @@ int main (int argc, char *argv[]) {
 			break;
 	for (int i = 1; i < niters; i++)
 		sleep(sleeptime);
-	fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+	
+	char mybuf[nchars];
+	fscanf(stdin, "%s", mybuf);
+	
+	/*fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);*/
 	
 	return 0;
 }
