@@ -40,7 +40,7 @@ int main (int argc, char *argv[]) {
 	int i;
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
-		if (!(childpid = fork())) {
+		if (childpid = fork()) {
 			/*printf("I'm a parent (PID: %ld) that just forked off a child with PID: %ld\n", (long)getpid(),(long)childpid);*/
 			/*printf("For testing purposes, I will read one character from stdin: %c\n", getc(stdin));*/
 			/*wait();
@@ -85,9 +85,11 @@ int main (int argc, char *argv[]) {
 	
 	/*fscanf(stdin, "%s", mybuf);*/
 	
+	int status = 0;
+	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
-		wait();
+		while((wpid = wait(&status)) > 0);
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
