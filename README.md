@@ -18,9 +18,9 @@ Version Control
   
   
 Task Observations  
-Step #1:  
-Step #2:  
-Step #3:  
+Step #1: Results for different number of processes showed some processes adopted by init while the others maintained parent ID from parent process.  
+Step #2: IMGUR LINK TO FIGURE I DREW...  
+Step #3: Experimented with a variety of different values for the number of processes. On average, the number of processes adopted by init were 28.64% of the processes.  
 Step #4:  
 Step #5:  
 Step #6:  
