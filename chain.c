@@ -35,6 +35,7 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
+	printf("nprocs: %d, nchars: %d",nprocs,nchars);
 	
 	int i;
 	pid_t childpid = 0;
