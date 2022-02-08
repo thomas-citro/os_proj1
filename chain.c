@@ -93,6 +93,14 @@ int main (int argc, char *argv[]) {
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
 		fprintf(stderr, "child ID:%ld\n", (long)childpid);
 		/*fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);*/
+		
+		int j;
+		char mybuf[nchars];
+		char c;
+		for (j = 0; j < nchars; j++) {
+			c = getc(stdin);
+			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
+		}
 	}
 	
 	
