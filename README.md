@@ -20,8 +20,8 @@ Version Control
 Task Observations  
 Step #1: Results for different number of processes showed some processes adopted by init while the others maintained parent ID from parent process.  
 Step #2: IMGUR LINK TO FIGURE I DREW...  
-Step #3: Experimented with a variety of different values for the number of processes. On average, 28.64% of the processes were adopted by init.  
-Step #4: Added "sleep(10);" before the final fprintf statement. I then experimented with a variety of different values for the number of processes On average, 40.50% of the processes were adopted by init. I also noticed that once the number of processes exceeded 27, the program would stop forking more processes (fork() returned error -1).  
+Step #3: Experimented with a variety of different values for the number of processes. On average, the number of processes adopted by init were 28.64% of the processes.  
+Step #4:  
 Step #5:  
 Step #6:  
 Step #7:  
