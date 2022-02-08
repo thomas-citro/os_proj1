@@ -23,7 +23,7 @@ Step #2: IMGUR LINK TO FIGURE I DREW...
 Step #3: Experimented with a variety of different values for the number of processes. On average, 28.64% of the processes were adopted by init.  
 Step #4: Added "sleep(10);" before the final fprintf statement. I then experimented with a variety of different values for the number of processes On average, 40.50% of the processes were adopted by init. I also noticed that once the number of processes exceeded 27, the program would stop forking more processes (fork() returned error -1).  
 Step #5: I put sleep(sleeptime); and the final fprintf statement inside a loop that loops niters times. I observed that init adoptions would only occur on the final iteration of this for loop. This is because, for all the first iterations, the processes don't terminate. However, processes will terminate after completing the final iteration. So for any processes that complete out of order, the child process will be adopted by init before the child runs the fprintf statement (since the parent had already terminated).  
-Step #6:  
+Step #6: After adding wait(); before fprintf, I noticed that the youngest child ran all iterations and fprintf statements first and then terminated. Next, its parent ran all iterations and fprintf statements and terminated. The same idea continued until all processes terminated... Because the parent processes waited for the children to terminate, there were no init adoptions made, and the output was ordered nicely.  
 Step #7:  
 Step #8:  
   
