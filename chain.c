@@ -35,16 +35,22 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
-	printf("nprocs: %d, nchars: %d",nprocs,nchars);
+	printf("nprocs: %d, nchars: %d\n",nprocs,nchars);
 	
 	int i;
-	pid_t childpid = 0;
+	pid_t childpid, wpid;
+	int status = 0;
 	
-	for (i = 1; i < nprocs; i++)
-		if (childpid = fork()) {
-			break;
-			wait();
-		}
+	for (int id=0; id<n; id++) {
+	    if ((childpid = fork()) == 0) {
+		//child code
+		exit(0);
+	    }
+	}
+	while ((wpid = wait(&status)) > 0);
+	printf("Hello, I am process ID: %ld. Just finished waiting on all child processes.\n");
+	
+	
 	for (i = 1; i < niters; i++)
 		sleep(sleeptime);
 	
