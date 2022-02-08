@@ -40,7 +40,7 @@ int main (int argc, char *argv[]) {
 	int i;
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
-		if (childpid = fork()) {
+		if (!(childpid = fork())) {
 			/*printf("I'm a parent (PID: %ld) that just forked off a child with PID: %ld\n", (long)getpid(),(long)childpid);*/
 			/*printf("For testing purposes, I will read one character from stdin: %c\n", getc(stdin));*/
 			/*wait();
