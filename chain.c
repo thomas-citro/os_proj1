@@ -41,12 +41,13 @@ int main (int argc, char *argv[]) {
 	pid_t childpid = 0;
 	
 	for (i = 1; i < nprocs; i++)
-		if (childpid = fork())
+		if (childpid = fork()) {
 			break;
+			wait();
+		}
 	for (i = 1; i < niters; i++)
 		sleep(sleeptime);
 	
-	wait();
 	char mybuf[nchars];
 	char c;
 	for (i = 0; i < nchars; i++) {
