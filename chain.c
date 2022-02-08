@@ -99,8 +99,9 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
+		char choice;
 		for (j = 0; j < nchars; j++) {
-			c = getc(stdin);
+			c = scanf(" %c", &choice);
 			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
 		}
 	}
