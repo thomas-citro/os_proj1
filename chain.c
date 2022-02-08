@@ -47,10 +47,9 @@ int main (int argc, char *argv[]) {
 	
 	char mybuf[nchars];
 	char c;
-	fprintf(stderr, "nchars == %d\n", nchars);
 	for (i = 0; i < nchars; i++) {
 		c = getc(stdin);
-		fprintf(stderr, "process #%d: %c\n", i, c);
+		fprintf(stderr, "character #%d: %c\n", i, c);
 	}
 	
 	/*fscanf(stdin, "%s", mybuf);*/
