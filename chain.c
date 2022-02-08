@@ -87,7 +87,7 @@ int main (int argc, char *argv[]) {
 	
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
-		/*wait();*/
+		wait();
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
