@@ -38,9 +38,18 @@ int main (int argc, char *argv[]) {
 	printf("nprocs: %d, nchars: %d\n",nprocs,nchars);
 	
 	int i;
+	pid_t childpid = 0;
+	for (i = 0; i < nprocs; i++) {
+		if (childpid = fork()) {
+			break;	
+		}
+	}
+	waitpid(childpid);
+	
+	/*
+	int i;
 	pid_t childpid, wpid;
 	int status = 0;
-	
 	int id = 0;
 	for (id = 0; id < nprocs; id++) {
 	    if ((childpid = fork()) == 0) {
@@ -50,7 +59,7 @@ int main (int argc, char *argv[]) {
 	}
 	while ((wpid = wait(&status)) > 0);
 	printf("Hello, I am process ID: %ld. Just finished waiting on all child processes.\n", (long)getpid());
-	
+	*/
 	
 	for (i = 1; i < niters; i++)
 		sleep(sleeptime);
