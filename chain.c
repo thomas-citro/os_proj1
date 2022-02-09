@@ -6,7 +6,7 @@ int main (int argc, char *argv[]) {
 	int nprocs = 4;
 	int nchars = 80;
 	int sleeptime = 3;
-	int niters;
+	int niters = 1;
 	
 	int option;
 	while ((option = getopt(argc, argv, "hp:c:s:i:")) != -1) {
@@ -20,8 +20,8 @@ int main (int argc, char *argv[]) {
 				printf("-c nchars 	(integer) Specify number of characters to read into the buffer (default 80).\n");
 				printf("-s sleeptime 	(integer) Specify time to sleep in each iteration (default 3s).\n");
 				printf("-i niters 	(integer) Specify number of iterations in the loop.\n");
-				printf("< textfile 	File containing text to be read through stdin.\n");
-				break;
+				printf("< textfile 	File containing text to be read through stdin (default 1).\n");
+				return 0;
 			case 'p' :
 				nprocs = atoi(optarg);
 				printf("Chose p flag. Set nprocs to %d\n", nprocs);
@@ -43,8 +43,6 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
-	printf("nprocs: %d, nchars: %d\n",nprocs,nchars);
-	
 	int i;
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
@@ -61,12 +59,10 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
 		waitpid(childpid, &status, 0);
-		printf("(PID: %ld) Finished waiting\n", (long)getpid());
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
 		fprintf(stderr, "child ID:%ld\n", (long)childpid);
-		/*fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);*/
 		
 		int j;
 		char mybuf[nchars];
