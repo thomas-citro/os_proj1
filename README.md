@@ -10,7 +10,7 @@ Options:
 -p nprocs     (integer value) Specify number of processes to fork (default 4).  
 -c nchars     (integer value) Specify number of characters to read into the buffer (default 80).  
 -s sleeptime  (integer value) Specify time to sleep in each iteration (default 3s).  
--i niters     (integer value) Specify number of iterations in the loop.  
+-i niters     (integer value) Specify number of iterations in the loop (default 1). 
 < textfile    File containing text to be read through stdin.  
   
   
