@@ -15,7 +15,7 @@ int main (int argc, char *argv[]) {
 				printf("Usage: ./chain [-h] [-p nprocs] [-c nchars] [-s sleeptime] [-i niters] < textfile\n");
 				printf("Runs chain processes with the specified arguments\n\n");
 				printf("Options:\n");
-				printf("-h for help\n");
+				printf("-h 		for help\n");
 				printf("-p nprocs 	(integer) Specify number of processes to fork (default 4).\n");
 				printf("-c nchars 	(integer) Specify number of characters to read into the buffer (default 80).\n");
 				printf("-s sleeptime 	(integer) Specify time to sleep in each iteration (default 3s).\n");
@@ -48,6 +48,8 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
 			break;
+		} else if (childpid == 1) {
+			perror("chain: error: ");
 		}
 	}
 	
