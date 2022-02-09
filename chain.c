@@ -77,7 +77,7 @@ int main (int argc, char *argv[]) {
 			mybuf[j] = c;
 		}
 		mybuf[nchars] = '\0';
-		fprintf(stderr, "%ld: %s\n", (long)getpid(), mybuf);
+		fprintf(stderr, "PID %ld: %s\n", (long)getpid(), mybuf);
 	}
 	return 0;
 }
