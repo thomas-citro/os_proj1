@@ -38,6 +38,7 @@ int main (int argc, char *argv[]) {
 				printf("Error");
 		}
 	}
+	int processNumber = nprocs;
 	
 	int i;
 	pid_t childpid = 0;
@@ -46,8 +47,12 @@ int main (int argc, char *argv[]) {
 			break;
 		} else if (childpid < 0) {
 			perror("chain: Error: ");
+		} else {
+			/* child process */
+			processNumber--;
 		}
 	}
+	
 	
 	/*mybuf[nchars] = '\0';*/
 	/*fscanf(stdin, "%s", mybuf);*/
@@ -65,7 +70,7 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
-		fseek(stdin, 0, SEEK_SET);
+		fseek(stdin, nchars * processNumber, SEEK_SET);
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
 			if (c == EOF) {
