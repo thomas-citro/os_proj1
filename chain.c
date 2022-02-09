@@ -60,7 +60,7 @@ int main (int argc, char *argv[]) {
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
-		if ((waitpid(childpid, &status, 0) == -1) {
+		if (waitpid(childpid, &status, 0) == -1) {
 			printf("%s: ", argv[0]);
 			perror("Error: ");
 			exit(1);
