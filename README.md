@@ -26,8 +26,4 @@ Step #4: Added "sleep(10);" before the final fprintf statement. I then experimen
 Step #5: I put sleep(sleeptime); and the final fprintf statement inside a loop that loops niters times. I observed that init adoptions would only occur on the final iteration of this for loop. This is because, for all the first iterations, the processes don't terminate. However, processes will terminate after completing the final iteration. So for any processes that complete out of order, the child process will be adopted by init before the child runs the fprintf statement (since the parent had already terminated).  
 Step #6: After adding wait(); before fprintf, I noticed that the youngest child ran all iterations and fprintf statements first and then terminated. Next, its parent ran all iterations and fprintf statements and terminated. The same idea continued until all processes terminated... Because the parent processes waited for the children to terminate, there were no init adoptions made, and the output was ordered nicely. Also, I am still unable to run 100 processes because during wait, the processes are still alive/running (so we are still restricted by the process limit).   
 Step #7: Splitting up fprintf into 4 separate fprintf statements resulted in no difference in the output of the program. However, removing the 'wait' statement on top of this resulted in a race condition where the processes performed their fprintf statements simultaneously resulting in the output becoming unordered and difficult to decipher which process generated each part of the output.  
-Step #8:  
-  
-  
-Problems with this Project or Anything that I missed  
-/--  
+Step #8: The project now reads 'nchar' number of characters from the input, places each character in the 'mybuf' char array, and outputs the string of that character array. I observed that garbage characters would appear if the input file ran out of characters to read.  
