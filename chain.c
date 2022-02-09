@@ -71,6 +71,9 @@ int main (int argc, char *argv[]) {
 		char c;
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
+			if (c == EOF) {
+				printf("Is an EOF\n");
+			}
 			/*perror("getc");*/
 			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
 		}
