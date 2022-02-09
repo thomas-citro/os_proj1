@@ -49,6 +49,7 @@ int main (int argc, char *argv[]) {
 		if (childpid = fork()) {
 			break;
 		} else if (childpid == -1) {
+			printf("\n\nMade it in the perror for the childpid\n\n\");
 			perror("chain: Error: ");
 		}
 	}
