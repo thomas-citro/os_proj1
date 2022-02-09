@@ -24,19 +24,15 @@ int main (int argc, char *argv[]) {
 				return 0;
 			case 'p' :
 				nprocs = atoi(optarg);
-				printf("Chose p flag. Set nprocs to %d\n", nprocs);
 				break;
 			case 'c' :
 				nchars = atoi(optarg);
-				printf("Chose c flag. Set nchars to %d\n", nchars);
 				break;
 			case 's' :
 				sleeptime = atoi(optarg);
-				printf("Chose s flag. Set sleeptime to %d\n", sleeptime);
 				break;
 			case 'i' :
 				niters = atoi(optarg);
-				printf("Chose i flag. Set niters to %d\n", niters);
 				break;
 			default:
 				printf("Error");
@@ -48,7 +44,7 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
 			break;
-		} else if (childpid == -1) {
+		} else if (childpid < 0) {
 			perror("chain: Error: ");
 		}
 	}
