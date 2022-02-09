@@ -80,7 +80,7 @@ int main (int argc, char *argv[]) {
 			mybuf[j] = c;
 		}
 		mybuf[nchars] = '\0';
-		fprintf(stderr, "mybuf:%s\n", mybuf);
+		fprintf(stderr, "mybuf: %s\n", mybuf);
 	}
 	return 0;
 }
