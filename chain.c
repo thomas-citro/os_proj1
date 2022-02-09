@@ -40,6 +40,7 @@ int main (int argc, char *argv[]) {
 	}
 	int processNumber = nprocs;
 	
+	int status = 0;
 	int i;
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
@@ -60,8 +61,6 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
-	
-	int status = 0;
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
