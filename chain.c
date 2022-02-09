@@ -65,6 +65,7 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
+		fseek(stdin, 0, SEEK_SET);
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
 			if (c == EOF) {
