@@ -58,7 +58,10 @@ int main (int argc, char *argv[]) {
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
-		waitpid(childpid, &status, 0);
+		if ((waitpid(childpid, &status, 0) == -1) {
+			perror("chain: Error: ");
+			exit(1);
+		}
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
