@@ -44,6 +44,11 @@ int main (int argc, char *argv[]) {
 	pid_t childpid = 0;
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
+			if (waitpid(childpid, &status, 0) == -1) {
+				printf("%s: ", argv[0]);
+				perror("Error: ");
+				exit(1);
+			}
 			break;
 		} else if (childpid < 0) {
 			printf("%s: ", argv[0]);
@@ -60,11 +65,6 @@ int main (int argc, char *argv[]) {
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
-		if (waitpid(childpid, &status, 0) == -1) {
-			printf("%s: ", argv[0]);
-			perror("Error: ");
-			exit(1);
-		}
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
