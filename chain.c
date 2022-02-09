@@ -54,10 +54,6 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
-	
-	/*mybuf[nchars] = '\0';*/
-	/*fscanf(stdin, "%s", mybuf);*/
-	
 	int status = 0;
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
@@ -71,7 +67,8 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
-		fseek(stdin, nchars * processNumber, SEEK_SET); /* Seek where we need to read from the input file. */
+		int formula = (nchars * processNumber) + (niters * processNumber) + i
+		fseek(stdin, formula, SEEK_SET); /* Seek where we need to read from the input file. */
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
 			mybuf[j] = c;
