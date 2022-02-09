@@ -48,8 +48,8 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < nprocs; i++) {
 		if (childpid = fork()) {
 			break;
-		} else if (childpid == 1) {
-			perror("chain: error: ");
+		} else if (childpid == -1) {
+			perror("chain: Error: ");
 		}
 	}
 	
@@ -75,6 +75,5 @@ int main (int argc, char *argv[]) {
 			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
 		}
 	}
-	fclose(stdin);
 	return 0;
 }
