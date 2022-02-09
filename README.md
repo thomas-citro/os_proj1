@@ -15,11 +15,12 @@ Options:
   
   
 Version Control  
+Github repository: https://github.com/thomas-citro/os_proj1  
   
   
 Task Observations  
 Step #1: Results for different number of processes showed some processes adopted by init while the others maintained parent ID from parent process.  
-Step #2: IMGUR LINK TO FIGURE I DREW...  
+Step #2: Figure 3.2 redrawn with PIDs: https://i.imgur.com/B9tedus.png  
 Step #3: Experimented with a variety of different values for the number of processes. On average, 28.64% of the processes were adopted by init.  
 Step #4: Added "sleep(10);" before the final fprintf statement. I then experimented with a variety of different values for the number of processes On average, 40.50% of the processes were adopted by init. I also noticed that once the number of processes exceeded 27, the program would stop forking more processes (fork() returned error -1).  
 Step #5: I put sleep(sleeptime); and the final fprintf statement inside a loop that loops niters times. I observed that init adoptions would only occur on the final iteration of this for loop. This is because, for all the first iterations, the processes don't terminate. However, processes will terminate after completing the final iteration. So for any processes that complete out of order, the child process will be adopted by init before the child runs the fprintf statement (since the parent had already terminated).  
