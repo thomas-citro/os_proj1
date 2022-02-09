@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 	while ((option = getopt(argc, argv, "hp:c:s:i:")) != -1) {
 		switch (option) {
 			case 'h' :
-				printf("Chose h flag. Will have to see what this is supposed to do.\n");
+				printf(".\n");
 				break;
 			case 'p' :
 				nprocs = atoi(optarg);
@@ -101,9 +101,10 @@ int main (int argc, char *argv[]) {
 		char c;
 		char choice;
 		for (j = 0; j < nchars; j++) {
-			c = scanf(" %c", &choice);
+			c = getc(stdin);
 			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
 		}
+		fclose(stdin);
 	}
 	
 	
