@@ -47,6 +47,7 @@ int main (int argc, char *argv[]) {
 			break;
 		} else if (childpid < 0) {
 			perror("chain: Error: ");
+			exit(1);
 		} else {
 			/* child process */
 			processNumber--;
@@ -62,7 +63,7 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
 		waitpid(childpid, &status, 0);
-		fprintf(stderr, "i:%d ", i);
+		fprintf(stderr, "i:%d ", i);)
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
 		fprintf(stderr, "child ID:%ld\n", (long)childpid);
@@ -70,15 +71,13 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
-		fseek(stdin, nchars * processNumber, SEEK_SET);
+		fseek(stdin, nchars * processNumber, SEEK_SET); /* Seek where we need to read from the input file. */
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
-			if (c == EOF) {
-				printf("Is an EOF\n");
-			}
-			/*perror("getc");*/
-			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
+			mybuf[j] = c;
 		}
+		mybuf[nchars] = '\0';
+		fprintf(stderr, "%ld: %s\n", (long)getpid(), mybuf);
 	}
 	return 0;
 }
