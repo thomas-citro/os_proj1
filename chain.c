@@ -90,6 +90,7 @@ int main (int argc, char *argv[]) {
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
 		waitpid(childpid, &status, 0);
+		printf("(PID: %ld) Finished waiting\n", (long)getpid());
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
