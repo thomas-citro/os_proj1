@@ -67,8 +67,7 @@ int main (int argc, char *argv[]) {
 		int j;
 		char mybuf[nchars];
 		char c;
-		int formula = (nchars * processNumber) + ((niters + i) * processNumber);
-		fseek(stdin, formula, SEEK_SET); /* Seek where we need to read from the input file. */
+		fseek(stdin, nchars * processNumber * niters, SEEK_SET); /* Seek where we need to read from the input file. */
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
 			mybuf[j] = c;
