@@ -71,9 +71,10 @@ int main (int argc, char *argv[]) {
 		char c;
 		for (j = 0; j < nchars; j++) {
 			c = getc(stdin);
-			perror("getc");
+			/*perror("getc");*/
 			printf("(PID: %ld)... character #%d: %c\n", (long)getpid(), j, c);
 		}
 	}
+	fclose(stdin);
 	return 0;
 }
