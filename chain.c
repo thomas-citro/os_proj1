@@ -12,7 +12,15 @@ int main (int argc, char *argv[]) {
 	while ((option = getopt(argc, argv, "hp:c:s:i:")) != -1) {
 		switch (option) {
 			case 'h' :
-				printf(".\n");
+				printf("Usage: .\chain [-h] [-p nprocs] [-c nchars] [-s sleeptime] [-i niters] < textfile\n");
+				printf("Runs chain processes with the specified arguments\n\n");
+				printf("Options:\n");
+				printf("-h for help\n");
+				printf("-p nprocs 	(integer) Specify number of processes to fork (default 4).\n");
+				printf("-c nchars 	(integer) Specify number of characters to read into the buffer (default 80).\n");
+				printf("-s sleeptime 	(integer) Specify time to sleep in each iteration (default 3s).\n");
+				printf("-i niters 	(integer) Specify number of iterations in the loop.\n");
+				printf("< textfile 	File containing text to be read through stdin.\n");
 				break;
 			case 'p' :
 				nprocs = atoi(optarg);
