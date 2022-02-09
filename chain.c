@@ -46,7 +46,8 @@ int main (int argc, char *argv[]) {
 		if (childpid = fork()) {
 			break;
 		} else if (childpid < 0) {
-			perror("chain: Error: ");
+			printf("%s: ", argv[0]);
+			perror("Error: ");
 			exit(1);
 		} else {
 			/* child process */
@@ -54,18 +55,20 @@ int main (int argc, char *argv[]) {
 		}
 	}
 	
+	
 	int status = 0;
 	pid_t wpid;
 	for (i = 0; i < niters; i++) {
 		sleep(sleeptime);
 		if ((waitpid(childpid, &status, 0) == -1) {
-			perror("chain: Error: ");
+			printf("%s: ", argv[0]);
+			perror("Error: ");
 			exit(1);
 		}
 		fprintf(stderr, "i:%d ", i);
 		fprintf(stderr, "process ID:%ld ", (long)getpid());
 		fprintf(stderr, "parent ID:%ld ", (long)getppid());
-		fprintf(stderr, "child ID:%ld\n", (long)childpid);
+		fprintf(stderr, "child ID:%ld ", (long)childpid);
 		
 		int j;
 		char mybuf[nchars];
@@ -78,7 +81,7 @@ int main (int argc, char *argv[]) {
 			mybuf[j] = c;
 		}
 		mybuf[nchars] = '\0';
-		fprintf(stderr, "PID %ld: %s\n", (long)getpid(), mybuf);
+		fprintf(stderr, "mybuf:%s\n", mybuf);
 	}
 	return 0;
 }
